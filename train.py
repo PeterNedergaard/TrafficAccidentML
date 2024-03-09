@@ -4,7 +4,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn import svm
 from sklearn.svm import SVC
 
 data = pd.read_csv('data/encoded_data.csv')
@@ -19,7 +18,6 @@ def train_all():
     train_random_forest()
     train_decision_tree()
     train_knn()
-    train_svm()
     train_svc()
 
 
@@ -60,19 +58,6 @@ def train_knn():
     # Evaluate the model
     accuracy = accuracy_score(y_test, y_pred)
     print(f'KNN Accuracy: {accuracy:.2f}')
-
-
-def train_svm():
-    # Train an SVM classifier
-    clf = svm.SVC(kernel='linear')
-    clf.fit(X_train, y_train)
-
-    # Make predictions
-    y_pred = clf.predict(X_test)
-
-    # Evaluate the model
-    accuracy = accuracy_score(y_test, y_pred)
-    print(f'SVM Accuracy: {accuracy:.2f}')
 
 
 def train_svc():
